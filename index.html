@@ -12,7 +12,6 @@
       --muted: #6b7684;
       --accent: #1e88e5;
       --accent-2: #0ea5b7;
-      --glass: rgba(255,255,255,0.7);
       --shadow: 0 10px 30px rgba(30, 39, 63, 0.08);
       --radius: 12px;
       --hujan-red: #ffe7e7;
@@ -22,73 +21,40 @@
     body{
       font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
       margin:0; background:linear-gradient(180deg,var(--bg),#eef7ff 60%); color:#0f1724;
-      padding:28px;
+      padding:20px;
     }
-
-    header{
-      display:flex; gap:16px; align-items:center; justify-content:space-between;
-      margin-bottom:22px;
-    }
-    .brand{
-      display:flex; gap:12px; align-items:center;
-    }
-    .brand img{
-      width:56px; height:56px; object-fit:cover; border-radius:10px; box-shadow:var(--shadow);
-    }
-    .brand .title{ font-weight:700; font-size:18px; line-height:1; }
-    .brand .subtitle{ font-size:12px; color:var(--muted); margin-top:4px; }
+    header{display:flex; gap:12px; align-items:center; justify-content:space-between; margin-bottom:18px;}
+    .brand{display:flex; gap:12px; align-items:center;}
+    .brand img{width:52px; height:52px; object-fit:cover; border-radius:10px; box-shadow:var(--shadow);}
+    .brand .title{ font-weight:700; font-size:18px; }
+    .brand .subtitle{ font-size:12px; color:var(--muted); }
 
     .controls { display:flex; gap:10px; align-items:center; }
-    .btn {
-      background:var(--accent); color:white; padding:8px 12px; border-radius:10px; border:0;
-      font-weight:600; cursor:pointer; box-shadow: 0 6px 18px rgba(30,136,229,0.18);
-    }
-    .btn.secondary { background:transparent; color:var(--accent); border:1px solid rgba(30,136,229,0.12); box-shadow:none; }
+    .btn { background:var(--accent); color:white; padding:8px 12px; border-radius:10px; border:0; font-weight:600; cursor:pointer; }
+    .btn.secondary { background:transparent; color:var(--accent); border:1px solid rgba(30,136,229,0.12); }
 
-    .layout {
-      display:grid; grid-template-columns: 1fr 420px; gap:20px;
-    }
+    .layout { display:grid; grid-template-columns: 1fr 420px; gap:18px; }
 
-    /* left column */
-    .panel {
-      background:var(--card); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);
-    }
+    .panel { background:var(--card); border-radius:var(--radius); padding:14px; box-shadow:var(--shadow); }
 
-    .cards {
-      display:flex; gap:14px; margin-bottom:16px; align-items:stretch;
-    }
-    .card {
-      flex:1; padding:14px; border-radius:12px; background:linear-gradient(180deg,#ffffff,#fbfdff);
-      transition:transform .18s ease, box-shadow .18s ease; min-width:180px;
-    }
-    .card:hover { transform:translateY(-6px); box-shadow: 0 18px 36px rgba(10, 45, 95, 0.08);}
-    .card .meta { font-size:13px; color:var(--muted); margin-bottom:8px; font-weight:600; }
-    .card .big { font-size:26px; font-weight:700; color:#0b2b4a; }
-    .card .small { font-size:12px; color:var(--muted); margin-top:8px; white-space:pre-line; }
+    .cards { display:flex; gap:12px; margin-bottom:14px; align-items:stretch; }
+    .card { flex:1; padding:12px; border-radius:10px; background:linear-gradient(180deg,#fff,#fbfdff); min-width:160px; }
+    .card .meta { font-size:13px; color:var(--muted); margin-bottom:6px; font-weight:600; }
+    .card .big { font-size:24px; font-weight:700; color:#07203a; }
+    .card .small { font-size:13px; color:var(--muted); margin-top:8px; white-space:pre-line; }
 
     .hujan-line { margin-top:8px; font-size:13px; padding:8px; border-radius:10px; display:inline-block; }
 
-    .charts-grid { display:grid; grid-template-columns: 1fr; gap:14px; margin-top:8px; }
+    .charts-grid { display:grid; grid-template-columns: 1fr; gap:12px; }
 
-    /* aside right column */
-    aside .panel { position:sticky; top:28px; }
+    table { width:100%; border-collapse:collapse; }
+    th, td { padding:8px; border-bottom:1px solid #f1f6fb; font-size:13px; text-align:left; }
+    th { color:var(--muted); font-weight:700; position:sticky; top:0; background:#fff; }
 
-    .table-wrap { max-height:380px; overflow:auto; margin-top:8px; }
-    table { width:100%; border-collapse:collapse; min-width:680px; }
-    th, td { padding:10px 8px; text-align:left; border-bottom:1px solid #f1f6fb; font-size:13px; }
-    th { color:var(--muted); font-weight:600; background:transparent; position:sticky; top:0; }
-    .tag { display:inline-block; padding:6px 8px; border-radius:8px; font-size:12px; color:#044; background:#eaf6ff; }
-
-    /* small utilities */
-    .flex { display:flex; gap:10px; align-items:center; }
     .muted { color:var(--muted); font-size:13px; }
-
-    footer { margin-top:18px; color:var(--muted); font-size:13px; text-align:center; }
 
     @media (max-width:1000px){
       .layout{ grid-template-columns: 1fr; }
-      aside .panel { position:static; top:auto; }
-      table { min-width:100%; }
     }
   </style>
 </head>
@@ -96,7 +62,6 @@
 
   <header>
     <div class="brand">
-      <!-- using the uploaded image file as logo (local path you provided) -->
       <img src="https://pmb.amikompurwokerto.ac.id/assets/images/Logo.png" alt="logo">
       <div>
         <div class="title">Monitoring Cuaca Universitas Amikom Purwokerto</div>
@@ -114,7 +79,6 @@
   <div class="layout">
     <main>
       <div class="panel">
-        <!-- top cards -->
         <div class="cards">
           <div class="card" id="card-alat1">
             <div class="meta" id="card1-meta">Pabuaran — Purwokerto Utara</div>
@@ -138,46 +102,47 @@
           </div>
         </div>
 
-        <!-- Charts -->
         <div class="charts-grid">
-          <div class="panel" style="padding:12px;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-              <strong>Suhu (°C)</strong>
-              <div class="muted">3 garis — tiap alat</div>
+          <div class="panel">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+              <strong>Suhu (°C)</strong><div class="muted">3 garis — tiap alat</div>
             </div>
             <canvas id="chartSuhu" height="140"></canvas>
           </div>
 
-          <div class="panel" style="padding:12px;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-              <strong>Kelembapan (%)</strong>
-              <div class="muted">3 garis — tiap alat</div>
+          <div class="panel">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+              <strong>Kelembapan (%)</strong><div class="muted">3 garis — tiap alat</div>
             </div>
             <canvas id="chartKelembapan" height="140"></canvas>
           </div>
 
-          <div class="panel" style="padding:12px;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-              <strong>Tekanan (hPa)</strong>
-              <div class="muted">3 garis — tiap alat</div>
+          <div class="panel">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+              <strong>Tekanan (hPa)</strong><div class="muted">3 garis — tiap alat</div>
             </div>
             <canvas id="chartTekanan" height="140"></canvas>
           </div>
-        </div>
 
+          <div class="panel">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+              <strong>Hujan (Line Chart)</strong><div class="muted">0 = HUJAN, 1 = TERANG</div>
+            </div>
+            <canvas id="chartHujan" height="140"></canvas>
+          </div>
+        </div>
       </div>
     </main>
 
     <aside>
       <div class="panel">
-        <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
           <div>
             <strong>Log Terbaru</strong>
             <div class="muted" style="margin-top:4px;">Pilih alat dan lihat 10 log terbaru (terbaru di atas)</div>
           </div>
-
-          <div style="display:flex; gap:8px; align-items:center;">
-            <select id="selectAlat" style="padding:8px; border-radius:8px; border:1px solid #e6eef9;">
+          <div>
+            <select id="selectAlat" style="padding:8px;border-radius:8px;border:1px solid #e6eef9;">
               <option value="alat1_log_cuaca">Pabuaran — Purwokerto Utara</option>
               <option value="alat2_log_cuaca">Universitas Amikom Purwokerto</option>
               <option value="alat3_log_cuaca">Bancarkembar — Purwokerto Utara</option>
@@ -188,194 +153,93 @@
         <div class="table-wrap" style="margin-top:12px;">
           <table id="logTable">
             <thead>
-              <tr>
-                <th>Waktu</th>
-                <th>Suhu</th>
-                <th>Kelembapan</th>
-                <th>Tekanan</th>
-                <th>Hujan</th>
-                <th>Kondisi</th>
-              </tr>
+              <tr><th>Waktu</th><th>Suhu</th><th>Kelembapan</th><th>Tekanan</th><th>Hujan</th><th>Kondisi</th></tr>
             </thead>
-            <tbody>
-              <tr><td colspan="6" class="muted">Memuat data…</td></tr>
-            </tbody>
+            <tbody><tr><td colspan="6" class="muted">Memuat data…</td></tr></tbody>
           </table>
         </div>
       </div>
     </aside>
   </div>
 
+  <footer style="margin-top:12px;" class="muted">Ganti <code>firebaseConfig</code> dengan konfigurasi Realtime Database kamu.</footer>
+
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
   <script type="module">
-    // ---------------- CONFIG: GANTI firebaseConfig DENGAN MILIKMU ----------------
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-    import {
-      getDatabase, ref, query, limitToLast, onValue, get
-    } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+    import { getDatabase, ref as dbRef, query as dbQuery, limitToLast as dbLimit, onValue, get } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
 
-const firebaseConfig = {
-  apiKey: "ISI_API_KEY_MU",
-  authDomain: "prediksi-cuaca-f222d.firebaseapp.com",
-  databaseURL: "https://prediksi-cuaca-f222d-default-rtdb.asia-southeast1.firebasedatabase.app/",
-  projectId: "prediksi-cuaca-f222d",
-  storageBucket: "prediksi-cuaca-f222d.appspot.com",
-  messagingSenderId: "ISI_SENDER_ID",
-  appId: "ISI_APP_ID"
-};
-
-    // ------------------------------------------------------------------------------
+    const firebaseConfig = {
+      apiKey: "ISI_API_KEY_MU",
+      authDomain: "prediksi-cuaca-f222d.firebaseapp.com",
+      databaseURL: "https://prediksi-cuaca-f222d-default-rtdb.asia-southeast1.firebasedatabase.app/",
+      projectId: "prediksi-cuaca-f222d",
+      storageBucket: "prediksi-cuaca-f222d.appspot.com",
+      messagingSenderId: "ISI_SENDER_ID",
+      appId: "ISI_APP_ID"
+    };
 
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
 
-    // keys in database
-    const ALATS = ["alat1_log_cuaca", "alat2_log_cuaca", "alat3_log_cuaca"];
-    const COLORS = ["#1e88e5","#0ea5b7","#2563eb"]; // blue/teal/indigo
+    const ALATS = ["alat1_log_cuaca","alat2_log_cuaca","alat3_log_cuaca"];
+    const COLORS = ["#1e88e5","#0ea5b7","#2563eb"];
 
-    // helper: convert hujan numeric -> label & style
-    function hujanLabel(val){
-      // asumsi: 0 = HUJAN, 1 = TERANG (sesuai permintaan)
-      if (val === 0 || String(val) === "0") return "HUJAN";
-      return "TERANG";
-    }
-    function hujanStyle(val){
-      if (val === 0 || String(val) === "0") {
-        return { background: "var(--hujan-red)", color: "#b30000" };
-      }
-      return { background: "var(--terang-green)", color: "#006b52" };
-    }
+    function hujanVal(v){ return (v === 0 || String(v) === "0") ? 0 : 1; }
+    function hujanLabelText(v){ return (v === 0 || String(v) === "0") ? "HUJAN" : "TERANG"; }
+    function hujanStyle(val){ return (val === 0 || String(val) === '0') ? { background: 'var(--hujan-red)', color:'#b30000' } : { background: 'var(--terang-green)', color:'#006b52' }; }
 
-    // parse tanggal "DD/MM/YYYY" + waktu "HH:MM:SS" -> timestamp ms
-    function parseTimestamp(item){
-      try {
-        const [d,m,y] = (item?.tanggal || "").split("/").map(s => parseInt(s));
-        const [hh, mm, ss] = (item?.waktu || "00:00:00").split(":").map(s => parseInt(s));
-        return new Date(y, (m||1)-1, d||1, hh||0, mm||0, ss||0).getTime();
-      } catch(e){
-        return 0;
-      }
+    function makeLabel(item){ if(!item) return ""; return `${item.tanggal ?? ""} ${item.waktu ?? ""}`.trim(); }
+    function parseTS(item){
+      try{
+        const [d,m,y] = (item.tanggal||"1/1/2000").split("/").map(x=>parseInt(x));
+        const [hh,mm,ss] = (item.waktu||"00:00:00").split(":").map(x=>parseInt(x));
+        return new Date(y,m-1,d,hh,mm,ss).getTime();
+      } catch(e){ return 0; }
     }
-    function makeLabel(item){
-      if (!item) return "";
-      return `${item.tanggal ?? ""} ${item.waktu ?? ""}`.trim();
-    }
-
-    // convert snapshot object -> sorted ascending array of records (by datetime)
     function snapshotToArray(obj){
-      if (!obj) return [];
-      return Object.keys(obj).map(k => ({ key:k, ...obj[k] }))
-        .sort((a,b) => parseTimestamp(a) - parseTimestamp(b));
+      if(!obj) return [];
+      return Object.keys(obj).map(k=>({key:k, ...obj[k]})).sort((a,b)=>parseTS(a)-parseTS(b));
     }
 
-    // ---------- Chart setup ----------
-    function createChart(ctx, label, unit){
+    function createLineChart(ctx, unit){
       return new Chart(ctx, {
         type: 'line',
-        data: {
-          labels: [],
-          datasets: ALATS.map((p,i) => ({
-            label: p.replace("_log_cuaca",""),
-            data: [],
-            borderColor: COLORS[i],
-            backgroundColor: 'transparent',
-            pointRadius: 3,
-            tension: 0.28,
-            borderWidth: 2,
-            spanGaps: true
-          }))
-        },
-        options: {
-          responsive: true,
-          plugins: {
-            legend: { position: 'top' },
-            title: { display: false, text: label }
-          },
-          scales: {
-            x: { display: true, title: { display: true, text: 'Waktu' } },
-            y: { display: true, title: { display: true, text: unit } }
-          },
-          interaction: { mode:'index', intersect:false }
-        }
+        data: { labels: [], datasets: ALATS.map((a,i)=>({ label: a.replace("_log_cuaca",""), data: [], borderColor: COLORS[i], backgroundColor:'transparent', tension:0.28, pointRadius:3, borderWidth:2 })) },
+        options: { responsive:true, plugins:{legend:{position:'top'}}, scales:{ x:{ title:{display:true,text:'Waktu'} }, y:{ title:{display:true,text:unit} }}, interaction:{mode:'index', intersect:false} }
       });
     }
 
-    const chartSuhu = createChart(document.getElementById('chartSuhu').getContext('2d'), 'Suhu', '°C');
-    const chartKelemb = createChart(document.getElementById('chartKelembapan').getContext('2d'), 'Kelembapan', '%');
-    const chartTekan = createChart(document.getElementById('chartTekanan').getContext('2d'), 'Tekanan', 'hPa');
+    const chartSuhu = createLineChart(document.getElementById('chartSuhu').getContext('2d'), '°C');
+    const chartKelemb = createLineChart(document.getElementById('chartKelembapan').getContext('2d'), '%');
+    const chartTekan = createLineChart(document.getElementById('chartTekanan').getContext('2d'), 'hPa');
 
-    // Per-alat arrays (ascending by time), keep latest N
+    // Hujan line chart
+    const chartHujan = createLineChart(document.getElementById('chartHujan').getContext('2d'), 'Hujan (0=HUJAN,1=TERANG)');
+
     const MAX_POINTS = 20;
-    const perAlat = {
-      alat1_log_cuaca: [],
-      alat2_log_cuaca: [],
-      alat3_log_cuaca: []
-    };
+    const perAlat = { alat1_log_cuaca:[], alat2_log_cuaca:[], alat3_log_cuaca:[] };
 
-    // update summary cards (mengikuti format opsi B — baris terpisah)
-    function updateCards(){
-      ALATS.forEach((path, idx) => {
-        const arr = perAlat[path] || [];
-        const latest = arr.length ? arr[arr.length - 1] : null;
-        const tempEl = document.getElementById(`card${idx+1}-temp`);
-        const subEl = document.getElementById(`card${idx+1}-sub`);
-        const hujanEl = document.getElementById(`card${idx+1}-hujan`);
-        const metaEl = document.getElementById(`card${idx+1}-meta`);
-        // ensure meta present (names already set in HTML but keep safe)
-        if (!metaEl) {
-          // fallback names
-          if (idx === 0) document.getElementById(`card1-meta`).textContent = "Pabuaran — Purwokerto Utara";
-          if (idx === 1) document.getElementById(`card2-meta`).textContent = "Universitas Amikom Purwokerto";
-          if (idx === 2) document.getElementById(`card3-meta`).textContent = "Bancarkembar — Purwokerto Utara";
-        }
-        if (!latest){
-          tempEl.textContent = "-- °C";
-          subEl.textContent = "Tidak ada data";
-          hujanEl.textContent = "Hujan: --";
-          hujanEl.style.background = "var(--terang-green)";
-          hujanEl.style.color = "#006b52";
-        } else {
-          tempEl.textContent = `${latest.suhu ?? "-"} °C`;
-          // format opsi B:
-          // baris 1: Kelembapan X% · Tekanan Y
-          // baris 2: Hujan: HUJAN/TERANG
-          // baris 3: tanggal waktu
-          const kelemb = latest.kelembapan ?? "-";
-          const tekan = latest.tekanan ?? "-";
-          const waktuLabel = makeLabel(latest) || "-";
-          subEl.textContent = `Kelembapan ${kelemb}% · Tekanan ${tekan}`;
-          const hujanText = hujanLabel(latest.hujan);
-          hujanEl.textContent = `Hujan: ${hujanText}`;
-          const style = hujanStyle(latest.hujan);
-          hujanEl.style.background = style.background;
-          hujanEl.style.color = style.color;
-          // append waktu as small line under subEl (we use \n because .small has pre-line)
-          subEl.textContent = subEl.textContent + "\n" + waktuLabel;
-        }
-      });
-    }
-
-    // merge labels (union) sorted ascending
     function mergeLabels(){
       const set = new Set();
       ALATS.forEach(a => perAlat[a].forEach(it => set.add(makeLabel(it))));
       const labels = Array.from(set).filter(s=>s && s.trim().length>0);
-      labels.sort((A,B) => {
-        const pa = (() => { const [d,t] = A.split(" "); const [dd,mm,yy] = d.split("/").map(n=>parseInt(n)); const [hh,mi,ss] = (t||"00:00:00").split(":").map(n=>parseInt(n)); return new Date(yy,(mm||1)-1,dd||1,hh||0,mi||0,ss||0).getTime();})();
-        const pb = (() => { const [d,t] = B.split(" "); const [dd,mm,yy] = d.split("/").map(n=>parseInt(n)); const [hh,mi,ss] = (t||"00:00:00").split(":").map(n=>parseInt(n)); return new Date(yy,(mm||1)-1,dd||1,hh||0,mi||0,ss||0).getTime();})();
-        return pa - pb;
+      labels.sort((A,B)=> {
+        const ta = (()=>{ const [d,t] = A.split(' '); const [dd,mm,yy] = d.split('/').map(n=>parseInt(n)); const [hh,mi,ss] = (t||'00:00:00').split(':').map(n=>parseInt(n)); return new Date(yy,(mm||1)-1,dd||1,hh||0,mi||0,ss||0).getTime(); })();
+        const tb = (()=>{ const [d,t] = B.split(' '); const [dd,mm,yy] = d.split('/').map(n=>parseInt(n)); const [hh,mi,ss] = (t||'00:00:00').split(':').map(n=>parseInt(n)); return new Date(yy,(mm||1)-1,dd||1,hh||0,mi||0,ss||0).getTime(); })();
+        return ta - tb;
       });
       return labels;
     }
 
-    // build series aligned to labels (null for gaps)
     function buildSeries(labels, items, field){
       const map = new Map(items.map(it => [makeLabel(it), it]));
       return labels.map(l => {
         const v = map.get(l);
-        if (!v) return null;
+        if(!v) return null;
+        if(field === 'hujan') return hujanVal(v.hujan);
         const val = v[field];
         return (val === undefined || val === null) ? null : Number(val);
       });
@@ -383,100 +247,100 @@ const firebaseConfig = {
 
     function updateCharts(){
       const labels = mergeLabels();
-      const suhuSeries = ALATS.map(a => buildSeries(labels, perAlat[a] || [], 'suhu'));
-      const kelembSeries = ALATS.map(a => buildSeries(labels, perAlat[a] || [], 'kelembapan'));
-      const tekanSeries = ALATS.map(a => buildSeries(labels, perAlat[a] || [], 'tekanan'));
-
-      [chartSuhu, chartKelemb, chartTekan].forEach((chart, i) => {
-        chart.data.labels = labels;
+      [chartSuhu, chartKelemb, chartTekan, chartHujan].forEach(ch => ch.data.labels = labels);
+      ALATS.forEach((a,i) => {
+        chartSuhu.data.datasets[i].data = buildSeries(labels, perAlat[a] || [], 'suhu');
+        chartKelemb.data.datasets[i].data = buildSeries(labels, perAlat[a] || [], 'kelembapan');
+        chartTekan.data.datasets[i].data = buildSeries(labels, perAlat[a] || [], 'tekanan');
+        chartHujan.data.datasets[i].data = buildSeries(labels, perAlat[a] || [], 'hujan');
       });
-      chartSuhu.data.datasets.forEach((ds, i) => ds.data = suhuSeries[i] || []);
-      chartKelemb.data.datasets.forEach((ds, i) => ds.data = kelembSeries[i] || []);
-      chartTekan.data.datasets.forEach((ds, i) => ds.data = tekanSeries[i] || []);
-
-      chartSuhu.update();
-      chartKelemb.update();
-      chartTekan.update();
+      chartSuhu.update(); chartKelemb.update(); chartTekan.update(); chartHujan.update();
     }
 
-    // render table for selected alat
+    function updateCards(){
+      ALATS.forEach((p,idx) => {
+        const arr = perAlat[p] || [];
+        const latest = arr.length ? arr[arr.length-1] : null;
+        const tempEl = document.getElementById(`card${idx+1}-temp`);
+        const subEl = document.getElementById(`card${idx+1}-sub`);
+        const hujanEl = document.getElementById(`card${idx+1}-hujan`);
+        if(!latest){
+          tempEl.textContent = '-- °C';
+          subEl.textContent = 'Tidak ada data';
+          hujanEl.textContent = 'Hujan: --';
+          hujanEl.style.background = 'var(--terang-green)';
+          hujanEl.style.color = '#006b52';
+        } else {
+          tempEl.textContent = `${latest.suhu ?? '-'} °C`;
+          subEl.textContent = `Kelembapan ${latest.kelembapan ?? '-'}% · Tekanan ${latest.tekanan ?? '-'}\n${makeLabel(latest)}`;
+          const hv = latest.hujan;
+          hujanEl.textContent = `Hujan: ${hujanLabelText(hv)}`;
+          const s = hujanStyle(hv);
+          hujanEl.style.background = s.background; hujanEl.style.color = s.color;
+        }
+      });
+    }
+
     const selectAlat = document.getElementById('selectAlat');
     const tbody = document.querySelector('#logTable tbody');
     function renderTable(){
       const path = selectAlat.value;
-      const arr = (perAlat[path] || []).slice().reverse(); // newest first
-      const last10 = arr.slice(0, 10);
-      if (!last10.length){
+      const arr = (perAlat[path] || []).slice().reverse().slice(0,10);
+      if(!arr.length){
         tbody.innerHTML = `<tr><td colspan="6" class="muted">Belum ada data</td></tr>`;
         return;
       }
-      tbody.innerHTML = last10.map(it => {
-        const hujanTxt = hujanLabel(it.hujan);
-        // gunakan kondisi jika ada field kondisi, kalau tidak gunakan hujanTxt
-        const kondisi = it.kondisi ?? hujanTxt;
-        return `
-        <tr>
+      tbody.innerHTML = arr.map(it => {
+        const hv = hujanVal(it.hujan);
+        const kondisi = it.kondisi ?? (hv===0 ? 'HUJAN' : 'TERANG');
+        return `<tr>
           <td>${makeLabel(it)}</td>
-          <td>${it.suhu ?? "-"}</td>
-          <td>${it.kelembapan ?? "-"}</td>
-          <td>${it.tekanan ?? "-"}</td>
-          <td>${(it.hujan === 0 || String(it.hujan) === "0") ? "0" : (it.hujan ?? "-")}</td>
+          <td>${it.suhu ?? '-'}</td>
+          <td>${it.kelembapan ?? '-'}</td>
+          <td>${it.tekanan ?? '-'}</td>
+          <td>${(it.hujan === 0 || String(it.hujan) === '0') ? '0' : (it.hujan ?? '-')}</td>
           <td>${kondisi}</td>
-        </tr>
-      `;
+        </tr>`;
       }).join('');
     }
     selectAlat.addEventListener('change', renderTable);
 
-    // ---------- Firebase realtime listeners ----------
-    // Import utility names separately (avoid double import conflict)
-    import { ref as dbRef } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
-    import { query as dbQuery } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
-    import { limitToLast as dbLimit } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
-
     ALATS.forEach(path => {
-      const q = dbQuery(dbRef(db, path), dbLimit(20)); // ambil 20 terakhir
+      const q = dbQuery(dbRef(db, path), dbLimit(20));
       onValue(q, snapshot => {
-        const val = snapshot.val();
-        const arr = snapshotToArray(val);
-        // keep only last MAX_POINTS
+        const arr = snapshotToArray(snapshot.val());
         perAlat[path] = arr.slice(-MAX_POINTS);
         updateCards();
         updateCharts();
-        if (selectAlat.value === path) renderTable();
-      }, err => console.error("firebase error", err));
+        if(selectAlat.value === path) renderTable();
+      }, err => console.error('firebase error', err));
     });
 
-    // manual refresh (re-get)
     document.getElementById('refreshBtn').addEventListener('click', async () => {
-      try {
-        ALATS.forEach(async path => {
+      try{
+        for(const path of ALATS){
           const q = dbQuery(dbRef(db, path), dbLimit(20));
-          // using get to force fetch once (but onValue already keeps realtime)
           const snap = await get(q);
-          const arr = snapshotToArray(snap.val());
-          perAlat[path] = arr.slice(-MAX_POINTS);
-        });
+          perAlat[path] = snapshotToArray(snap.val()).slice(-MAX_POINTS);
+        }
         updateCards(); updateCharts(); renderTable();
-      } catch(e){ console.error(e); }
+      }catch(e){ console.error(e); }
     });
 
-    // CSV download helper
     document.getElementById('downloadBtn').addEventListener('click', () => {
       const path = selectAlat.value;
       const arr = (perAlat[path] || []).slice().reverse();
-      if (!arr.length) { alert("Tidak ada data untuk di-download"); return; }
-      const rows = [["waktu","suhu","kelembapan","tekanan","hujan","kondisi"]];
-      arr.forEach(it => rows.push([makeLabel(it), it.suhu ?? "", it.kelembapan ?? "", it.tekanan ?? "", it.hujan ?? "", it.kondisi ?? ""]));
-      const csv = rows.map(r => r.map(c => `"${String(c).replace(/"/g,'""')}"`).join(",")).join("\n");
-      const blob = new Blob([csv], {type:"text/csv;charset=utf-8;"});
+      if(!arr.length){ alert('Tidak ada data untuk di-download'); return; }
+      const rows = [['waktu','suhu','kelembapan','tekanan','hujan','kondisi']];
+      arr.forEach(it => rows.push([makeLabel(it), it.suhu ?? '', it.kelembapan ?? '', it.tekanan ?? '', it.hujan ?? '', it.kondisi ?? '']));
+      const csv = rows.map(r => r.map(c => `"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
+      const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url; a.download = `${path}_logs.csv`; document.body.appendChild(a); a.click(); a.remove();
       URL.revokeObjectURL(url);
     });
 
-    // initial UI placeholders
     updateCards();
     renderTable();
   </script>
